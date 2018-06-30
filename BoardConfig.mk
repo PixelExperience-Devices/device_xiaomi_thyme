@@ -59,6 +59,9 @@ TARGET_KERNEL_CONFIG := vendor/thyme_user_defconfig
 # Platform
 TARGET_BOARD_PLATFORM := kona
 
+# Bluetooth
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(DEVICE_PATH)/bluetooth/include
+
 # Metadata
 BOARD_USES_METADATA_PARTITION := true
 
