@@ -147,6 +147,10 @@ PRODUCT_PACKAGES += \
 # Properties
 include $(LOCAL_PATH)/properties/default.mk
 
+# Sensor
+PRODUCT_PACKAGES += \
+    android.hardware.sensors@2.0-service.thyme \
+
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH) \
