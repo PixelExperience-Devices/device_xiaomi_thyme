@@ -1,3 +1,6 @@
+# Binaries
+/system/bin/als_correction_service    u:object_r:als_correction_service_exec:s0
+
 # Data files
 /data/display(/.*)?      u:object_r:display_data_file:s0
 

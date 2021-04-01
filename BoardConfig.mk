@@ -165,6 +165,10 @@ include device/qcom/sepolicy/SEPolicy.mk
 
 BOARD_PLAT_PRIVATE_SEPOLICY_DIR += $(DEVICE_PATH)/sepolicy/private
 
+# Sensor
+SOONG_CONFIG_NAMESPACES += THYME_SENSORS
+SOONG_CONFIG_THYME_SENSORS := ALS_POS_X ALS_POS_Y
+
 # VINTF
 DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := $(DEVICE_PATH)/configs/vintf/compatibility_matrix.device.xml
 DEVICE_FRAMEWORK_MANIFEST_FILE := $(DEVICE_PATH)/configs/vintf/framework_manifest.xml
