@@ -1,0 +1,6 @@
+[
+  {
+    "repository": "android_kernel_xiaomi_thyme",
+    "target_path": "kernel/xiaomi/thyme"
+  }
+]
