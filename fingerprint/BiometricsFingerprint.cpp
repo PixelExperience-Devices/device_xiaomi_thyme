@@ -24,7 +24,33 @@
 #include <hardware/hardware.h>
 #include <hardware/hw_auth_token.h>
 #include <inttypes.h>
+#include <poll.h>
 #include <unistd.h>
+
+#include <fstream>
+#include <thread>
+
+#define COMMAND_NIT 10
+#define PARAM_NIT_FOD 1
+#define PARAM_NIT_NONE 0
+
+#define FOD_STATUS_ON 1
+#define FOD_STATUS_OFF -1
+
+#define TOUCH_DEV_PATH "/dev/xiaomi-touch"
+#define TOUCH_FOD_ENABLE 10
+#define TOUCH_MAGIC 0x5400
+#define TOUCH_IOC_SETMODE TOUCH_MAGIC + 0
+
+namespace {
+
+template <typename T>
+static void set(const std::string& path, const T& value) {
+    std::ofstream file(path);
+    file << value;
+}
+
+} // anonymous namespace
 
 namespace android {
 namespace hardware {
@@ -46,6 +72,8 @@ BiometricsFingerprint::BiometricsFingerprint() : mClientCallback(nullptr), mDevi
     if (!mDevice) {
         ALOGE("Can't open HAL module");
     }
+    touch_fd_ = android::base::unique_fd(open(TOUCH_DEV_PATH, O_RDWR));
+    touchFeatureService = ITouchFeature::getService();
 }
 
 BiometricsFingerprint::~BiometricsFingerprint() {
@@ -170,11 +198,13 @@ Return<uint64_t> BiometricsFingerprint::preEnroll() {
 
 Return<RequestStatus> BiometricsFingerprint::enroll(const hidl_array<uint8_t, 69>& hat,
                                                     uint32_t gid, uint32_t timeoutSec) {
+    touchFeatureService->setTouchMode(TOUCH_FOD_ENABLE, 1);
     const hw_auth_token_t* authToken = reinterpret_cast<const hw_auth_token_t*>(hat.data());
     return ErrorFilter(mDevice->enroll(mDevice, authToken, gid, timeoutSec));
 }
 
 Return<RequestStatus> BiometricsFingerprint::postEnroll() {
+    touchFeatureService->resetTouchMode(TOUCH_FOD_ENABLE);
     return ErrorFilter(mDevice->post_enroll(mDevice));
 }
 
@@ -183,6 +213,7 @@ Return<uint64_t> BiometricsFingerprint::getAuthenticatorId() {
 }
 
 Return<RequestStatus> BiometricsFingerprint::cancel() {
+    touchFeatureService->resetTouchMode(TOUCH_FOD_ENABLE);
     return ErrorFilter(mDevice->cancel(mDevice));
 }
 
@@ -214,6 +245,7 @@ Return<RequestStatus> BiometricsFingerprint::setActiveGroup(uint32_t gid,
 }
 
 Return<RequestStatus> BiometricsFingerprint::authenticate(uint64_t operationId, uint32_t gid) {
+    touchFeatureService->setTouchMode(TOUCH_FOD_ENABLE, 1);
     return ErrorFilter(mDevice->authenticate(mDevice, operationId, gid));
 }
 
@@ -371,6 +403,7 @@ void BiometricsFingerprint::notify(const fingerprint_msg_t* msg) {
                          .isOk()) {
                     ALOGE("failed to invoke fingerprint onAuthenticated callback");
                 }
+                getInstance()->onFingerUp();
             } else {
                 // Not a recognized fingerprint
                 if (!thisPtr->mClientCallback
@@ -405,10 +438,18 @@ Return<bool> BiometricsFingerprint::isUdfps(uint32_t /* sensorId */) {
 
 Return<void> BiometricsFingerprint::onFingerDown(uint32_t /* x */, uint32_t /* y */,
                                                 float /* minor */, float /* major */) {
+    int arg[2] = {TOUCH_FOD_ENABLE, FOD_STATUS_ON};
+    ioctl(touch_fd_.get(), TOUCH_IOC_SETMODE, &arg);
+    touchFeatureService->setTouchMode(TOUCH_FOD_ENABLE, 1);
+    mDevice->extCmd(mDevice, COMMAND_NIT, PARAM_NIT_FOD);
     return Void();
 }
 
 Return<void> BiometricsFingerprint::onFingerUp() {
+    int arg[2] = {TOUCH_FOD_ENABLE, FOD_STATUS_OFF};
+    ioctl(touch_fd_.get(), TOUCH_IOC_SETMODE, &arg);
+    touchFeatureService->resetTouchMode(TOUCH_FOD_ENABLE);
+    mDevice->extCmd(mDevice, COMMAND_NIT, PARAM_NIT_NONE);
     return Void();
 }
 

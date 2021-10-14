@@ -653,11 +653,11 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         </interface>
     </hal>
     <hal format="hidl">
-        <name>vendor.lineage.biometrics.fingerprint.inscreen</name>
+        <name>vendor.goodix.hardware.biometrics.fingerprint</name>
         <transport>hwbinder</transport>
-        <version>1.0</version>
+        <version>2.1</version>
         <interface>
-            <name>IFingerprintInscreen</name>
+            <name>IGoodixFingerprintDaemon</name>
             <instance>default</instance>
         </interface>
     </hal>
