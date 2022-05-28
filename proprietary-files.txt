@@ -69,7 +69,9 @@ vendor/lib/rfsa/adsp/misound_karaoke_res.bin
 vendor/lib/rfsa/adsp/misound_karaokemix_res.bin
 vendor/lib/rfsa/adsp/misound_res.bin
 vendor/lib/rfsa/adsp/misound_res_headphone.bin
-vendor/lib/rfsa/adsp/misound_res_spk.bin
+
+# ADSP Modules - from venus V13.0.6.0.SKBCNXM
+vendor/lib/rfsa/adsp/misound_res_spk.bin|4a7e08dd2ad392a211ed77c06f9098a84ebb1dad
 
 # Alarm
 -product/app/PowerOffAlarm/PowerOffAlarm.apk
