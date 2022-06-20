@@ -81,8 +81,8 @@ system_ext/lib64/vendor.qti.diaghal@1.0.so
 -system_ext/priv-app/dpmserviceapp/dpmserviceapp.apk
 
 # Fingerptint
-vendor/bin/hw/android.hardware.biometrics.fingerprint@2.3-service.thyme:product/vendor_overlay/30/bin/hw/android.hardware.biometrics.fingerprint@2.3-service.thyme|c6bea6af50b388e05ddd904e7266af9510a5d4d6
-vendor/etc/init/android.hardware.biometrics.fingerprint@2.3-service.thyme.rc:product/vendor_overlay/30/etc/init/android.hardware.biometrics.fingerprint@2.3-service.thyme.rc|fba483d840ec124f3332e4d3cb15ded180a05d25
+vendor/bin/hw/android.hardware.biometrics.fingerprint@2.3-service.thyme:product/vendor_overlay/30/bin/hw/android.hardware.biometrics.fingerprint@2.3-service.thyme|0ca7a7f44f9a093c0554b9eb295fcf5ad1a17cbf
+vendor/etc/init/android.hardware.biometrics.fingerprint@2.3-service.thyme.rc:product/vendor_overlay/30/etc/init/android.hardware.biometrics.fingerprint@2.3-service.thyme.rc|dc8cdd7880b2d7ee5c504df288712f98e49f7123
 vendor/lib64/android.hardware.biometrics.fingerprint@2.2.so:product/vendor_overlay/30/lib64/android.hardware.biometrics.fingerprint@2.2.so|4de1af0b7b162222654e90445ea80d605130f377
 vendor/lib64/android.hardware.biometrics.fingerprint@2.3.so:product/vendor_overlay/30/lib64/android.hardware.biometrics.fingerprint@2.3.so|006d9ef5178aeffe87622685f545227f577cd709
 
