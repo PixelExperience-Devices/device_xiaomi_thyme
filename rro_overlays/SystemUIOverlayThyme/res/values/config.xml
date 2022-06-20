@@ -60,4 +60,7 @@
 
     <!-- Whether usage of the proximity sensor during doze is supported -->
     <bool name="doze_proximity_sensor_supported">false</bool>
+
+    <!-- Udfps vendor code -->
+    <integer name="config_udfps_vendor_code">22</integer>
 </resources>
