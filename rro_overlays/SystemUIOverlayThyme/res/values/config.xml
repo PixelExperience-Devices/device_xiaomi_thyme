@@ -71,4 +71,7 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
           <item>250,36</item>
           <item>255,33</item>
     </string-array>
+
+    <!-- Udfps vendor code -->
+    <integer name="config_udfps_vendor_code">22</integer>
 </resources>
