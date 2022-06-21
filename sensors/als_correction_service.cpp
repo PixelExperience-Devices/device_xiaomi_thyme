@@ -99,7 +99,12 @@ int main() {
     action.sa_flags = SA_RESTART;
     action.sa_handler = [](int signal) {
         if (signal == SIGUSR1) {
+            static volatile bool isRunning = false;
+            if (isRunning)
+                return;
+            isRunning = true;
             updateScreenBuffer();
+            isRunning = false;
         }
     };
 
