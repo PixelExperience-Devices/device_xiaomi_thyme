@@ -78,7 +78,8 @@ PRODUCT_PACKAGES += \
     init.recovery.qcom.rc \
     init.recovery.usb.rc \
     init.recovery.qcom.sh \
-    init.thyme.rc
+    init.thyme.rc \
+    fstab.qcom
 
 # fastbootd
 PRODUCT_PACKAGES += \
