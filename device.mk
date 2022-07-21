@@ -55,6 +55,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_BUILD_SUPER_PARTITION := false
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 
+# AID/fs configs
+PRODUCT_PACKAGES += \
+    fs_config_files
+
 # HIDL
 PRODUCT_PACKAGES += \
     android.hidl.base@1.0 \
