@@ -1,0 +1,131 @@
+# Copyright (c) 2016, 2018, The Linux Foundation. All rights reserved.
+#
+# Redistribution and use in source and binary forms, with or without
+# modification, are permitted provided that the following conditions are met:
+#     * Redistributions of source code must retain the above copyright
+#       notice, this list of conditions and the following disclaimer.
+#     * Redistributions in binary form must reproduce the above copyright
+#       notice, this list of conditions and the following disclaimer in the
+#       documentation and/or other materials provided with the distribution.
+#     * Neither the name of The Linux Foundation nor
+#       the names of its contributors may be used to endorse or promote
+#       products derived from this software without specific prior written
+#       permission.
+#
+# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+# AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+# IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+# NON-INFRINGEMENT ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT OWNER OR
+# CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+# EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+# PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+# OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+# WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+# OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+# ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+#
+
+on early-init
+    exec u:r:vendor_modprobe:s0 -- /vendor/bin/modprobe -a -d /vendor/lib/modules audio_q6_pdr audio_q6_notifier audio_snd_event audio_apr audio_adsp_loader audio_q6 audio_native audio_usf audio_pinctrl_wcd audio_pinctrl_lpi audio_swr audio_platform audio_hdmi audio_stub audio_wcd_core audio_wsa881x audio_bolero_cdc audio_wsa_macro audio_va_macro audio_rx_macro audio_tx_macro audio_wcd938x audio_wcd938x_slave audio_cs35l41 audio_tfa98xx audio_machine_kona
+
+on fs
+    chmod 644 /mnt/vendor/persist/audio/us_manual_cal
+    mkdir /mnt/vendor/persist/haptics 0755 system system
+    mkdir /mnt/vendor/persist/audio 0755 system system
+    chmod 0644 /mnt/vendor/persist/haptics/vov
+    chown system system /mnt/vendor/persist/haptics/vov
+    chown system system /sys/bus/i2c/drivers/aw8697_haptic/2-005a/high_vol
+    chmod 644 /mnt/vendor/persist/audio/us_manual_cal
+    mkdir /mnt/vendor/persist/subsys 0770 root system
+    mkdir /mnt/vendor/persist/camera 0777 root root
+    chown system system /dev/tfa_reg
+    chown system system /dev/tfa_rw
+    chown system system /dev/tfa_rpc
+    chown system system /dev/tfa_control
+    chmod 0660 /dev/tfa_reg
+    chmod 0660 /dev/tfa_rw
+    chmod 0660 /dev/tfa_rpc
+    chmod 0660 /dev/tfa_control
+    chown system system /sys/devices/platform/soc/a8c000.i2c/i2c-2/2-005a/custom_wave
+    chmod 0666  /sys/devices/platform/soc/a8c000.i2c/i2c-2/2-005a/custom_wave
+
+on post-fs-data
+    chmod 0644 /dev/elliptic0
+    chmod 0644 /dev/elliptic1
+    chmod 0660 /dev/ir_spi
+    chown system system /vendor/etc/sensors/sensor_diag.cfg
+    chown system system /dev/ir_spi
+    mkdir /data/vendor/nfc 0770 nfc nfc
+    mkdir /data/vendor/misc/display 0771 system system
+    mkdir /data/vendor/mqsas_common 0771 system system
+    mkdir /data/vendor/thermal 0771 root system
+    mkdir /data/vendor/thermal/config 0771 root system
+
+on init
+    # Mipi Display feature
+    chmod 0777 /sys/devices/platform/soc/soc:qcom,dsi-display-primary/dynamic_dsi_clock
+
+    # Allow both charger and hal_light to access panel0 backlight
+    chown system system /sys/class/backlight/panel0-backlight/brightness
+
+    #change owner of white led
+    chown system system /sys/class/leds/white/brightness
+    chown system system /sys/class/leds/white/breath
+
+on boot
+    #enable camera read sensors data
+    setprop persist.camera.gyro.disable 0
+
+    #Create persist for camera calibration data
+    mkdir /mnt/vendor/persist/camera 0755 system cameraserver
+
+    chown system system /sys/class/touch/touch_dev/palm_sensor
+    chown system system /sys/class/touch/touch_dev/partial_diff_data
+
+    #Load WLAN driver
+    exec_background u:r:vendor_modprobe:s0 -- /vendor/bin/modprobe -a -d /vendor/lib/modules/ qca_cld3_wlan
+    chown system system /sys/class/drm/card0-DSI-1/disp_param
+    chown system system /proc/tp_selftest
+    chmod 0664 /proc/tp_selftest
+    chmod 0664 /sys/class/drm/card0-DSI-1/disp_param
+    chown system system /sys/class/drm/card0-DSI-1/mipi_reg
+    chmod 0664 /sys/class/drm/card0-DSI-1/mipi_reg
+    chown system system /sys/class/drm/card0-DSI-1/panel_info
+    chmod 0444 /sys/class/drm/card0-DSI-1/panel_info
+    chown system system /sys/class/drm/card0-DSI-1/oled_pmic_id
+    chmod 0444 /sys/class/drm/card0-DSI-1/oled_pmic_id
+    chown system system /sys/class/drm/card0-DSI-1/wp_info
+    chmod 0444 /sys/class/drm/card0-DSI-1/wp_info
+    chown system system /sys/class/drm/card0-DSI-1/dynamic_fps
+    chmod 0444 /sys/class/drm/card0-DSI-1/dynamic_fps
+    chown system system /sys/class/drm/card0-DSI-1/doze_brightness
+    chmod 0664 /sys/class/drm/card0-DSI-1/doze_brightness
+    chown system system /sys/class/drm/card0-DSI-1/disp_count
+    chmod 0664 /sys/class/drm/card0-DSI-1/disp_count
+    chown system system /sys/class/backlight/panel0-backlight/brightness_clone
+    chmod 0664 /sys/class/power_supply/battery/dc_thermal_levels
+    chown system system /sys/class/thermal/thermal_message/sconfig
+
+    chown root system /sys/module/migt/parameters/add_lclus_affinity_uidlist
+    chmod 0664 /sys/module/migt/parameters/add_lclus_affinity_uidlist
+    chown root system /sys/module/migt/parameters/del_lclus_affinity_uidlist
+    chmod 0664 /sys/module/migt/parameters/del_lclus_affinity_uidlist
+    chown root system /sys/module/migt/parameters/add_mclus_affinity_uidlist
+    chmod 0664 /sys/module/migt/parameters/add_mclus_affinity_uidlist
+    chown root system /sys/module/migt/parameters/del_mclus_affinity_uidlist
+    chmod 0664 /sys/module/migt/parameters/del_mclus_affinity_uidlist
+    chown root system /sys/module/migt/parameters/add_bclus_affinity_uidlist
+    chmod 0664 /sys/module/migt/parameters/add_bclus_affinity_uidlist
+    chown root system /sys/module/migt/parameters/del_bclus_affinity_uidlist
+    chmod 0664 /sys/module/migt/parameters/del_bclus_affinity_uidlist
+    chown root system /sys/module/migt/parameters/reset_clus_affinity_uidlist
+    chmod 0664 /sys/module/migt/parameters/reset_clus_affinity_uidlist
+
+on post-fs-data
+    mkdir /data/vendor/mac_addr 0770 system wifi
+
+service vendor.nv_mac /vendor/bin/nv_mac
+    class late_start
+    user system
+    group system inet net_admin wifi net_raw
+    oneshot
