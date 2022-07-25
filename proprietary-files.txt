@@ -121,3 +121,7 @@ system_ext/framework/qcrilhook.jar
 # SoundFX - from lemonade qssi-user-11-RKQ1.201105.002-2109102009-release-keys
 vendor/lib/soundfx/libvolumelistener.so:product/vendor_overlay/30/lib/soundfx/libvolumelistener.so|b942c3aa1ffa563ec3f58d6789a0fbddae992c25
 vendor/lib64/soundfx/libvolumelistener.so:product/vendor_overlay/30/lib64/soundfx/libvolumelistener.so|e7240dbaeae2c32932c294ca3500865523c9276d
+
+# Vibrator
+system/lib/libvibratorservice.so|994b508f8eb893d25314932eab83e9235bafca5e
+system/lib64/libvibratorservice.so|97b96add9c77a1dcba13dcad23031906197b7c82
