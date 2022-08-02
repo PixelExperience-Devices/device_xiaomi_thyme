@@ -6,6 +6,7 @@
 
 # Inherit from the proprietary version
 -include vendor/xiaomi/thyme/BoardConfigVendor.mk
+-include vendor/xiaomi/thyme-miuicamera/BoardConfigVendor.mk
 
 DEVICE_PATH := device/xiaomi/thyme
 THYME_PREBUILT := device/xiaomi/thyme-prebuilt

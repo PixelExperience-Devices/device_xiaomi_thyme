@@ -74,8 +74,17 @@ void load_dalvik_properties() {
     property_override("dalvik.vm.heapminfree", "8m");
 }
 
+void load_miuicamera_properties() {
+    property_override("ro.product.mod_device", "thyme_global");
+    property_override("vendor.camera.aux.packagelist", "com.android.camera");
+    property_override("persist.vendor.camera.privapp.list", "com.android.camera");
+    property_override("ro.com.google.lens.oem_camera_package", "com.android.camera");
+    property_override("ro.miui.notch", "1");
+}
+
 void vendor_load_properties() {
     load_dalvik_properties();
+    load_miuicamera_properties();
 
     property_override("ro.oem_unlock_supported", "0");
 }

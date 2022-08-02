@@ -5,6 +5,7 @@
 #
 
 $(call inherit-product, vendor/xiaomi/thyme/thyme-vendor.mk)
+$(call inherit-product, vendor/xiaomi/thyme-miuicamera/thyme-miuicamera-vendor.mk)
 
 THYME_PREBUILT := device/xiaomi/thyme-prebuilt
 
@@ -109,6 +110,15 @@ PRODUCT_COPY_FILES += \
 # Lights
 PRODUCT_PACKAGES += \
     android.hardware.lights-service.thyme
+
+# MIUI Camera
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/default-permissions/miuicamera-permissions.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/default-permissions/miuicamera-permissions.xml \
+    $(LOCAL_PATH)/configs/permissions/privapp-permissions-miuicamera.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-miuicamera.xml
+
+# Sysconfig
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/sysconfig/miuicamera-hiddenapi-package-whitelist.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/miuicamera-hiddenapi-package-whitelist.xml
 
 # NFC
 PRODUCT_PACKAGES += \
