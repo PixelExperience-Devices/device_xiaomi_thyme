@@ -22,5 +22,17 @@
     "target_path"  : "hardware/xiaomi",
     "remote"       : "pixel",
     "branch"       : "twelve"
+  },
+  { 
+    "repository"   : "vendor_xiaomi_thyme-firmware",
+    "target_path"  : "vendor/xiaomi/thyme-firmware",
+    "branch"       : "twelve",
+    "remote"       : "pixel-devices-blobs"
+  },
+  { 
+    "repository"   : "vendor_xiaomi_thyme-miuicamera",
+    "target_path"  : "vendor/xiaomi/thyme-miuicamera",
+    "branch"       : "twelve",
+    "remote"       : "pixel-devices-blobs"
   }
 ]
