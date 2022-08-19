@@ -20,6 +20,8 @@ $(call inherit-product, vendor/xiaomi/thyme/thyme-vendor.mk)
 TARGET_SCREEN_HEIGHT := 2400
 TARGET_SCREEN_WIDTH := 1080
 
+THYME_PREBUILT := device/xiaomi/thyme-prebuilt
+
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
     $(LOCAL_PATH)/overlay \
@@ -258,6 +260,10 @@ PRODUCT_PACKAGES += \
     libhwbinder \
     libhwbinder.vendor
 
+# Kernel
+PRODUCT_COPY_FILES += \
+    $(THYME_PREBUILT)/kernel/dtb.img:dtb.img
+
 # Init scripts
 PRODUCT_PACKAGES += \
     fstab.qcom \
@@ -410,6 +416,11 @@ PRODUCT_PACKAGES += \
 # USB
 PRODUCT_PACKAGES += \
     android.hardware.usb@1.2-service-qti
+
+# Vendor boot modules
+PRODUCT_COPY_FILES += \
+    $(call find-copy-subdir-files,*,$(THYME_PREBUILT)/modules/,$(TARGET_COPY_OUT_VENDOR_RAMDISK)/lib/modules) \
+    $(call find-copy-subdir-files,*,$(THYME_PREBUILT)/modules/,$(TARGET_COPY_OUT_VENDOR)/lib/modules)
 
 # Vendor service manager
 PRODUCT_PACKAGES += \
