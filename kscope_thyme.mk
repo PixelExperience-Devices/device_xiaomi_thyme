@@ -11,11 +11,12 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 # Inherit from thyme device
 $(call inherit-product, device/xiaomi/thyme/device.mk)
 
-# Inherit some common LineageOS stuff.
-$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
+# Inherit common Kaleidoscope configurations
+$(call inherit-product, vendor/kscope/target/product/mobile.mk)
+TARGET_BOOT_ANIMATION_RES := 1080
 
 # Device identifier. This must come after all inclusions.
-PRODUCT_NAME := lineage_thyme
+PRODUCT_NAME := kscope_thyme
 PRODUCT_DEVICE := thyme
 PRODUCT_BRAND := Xiaomi
 PRODUCT_MODEL := M2102J2SC
