@@ -438,16 +438,12 @@ Return<bool> BiometricsFingerprint::isUdfps(uint32_t /* sensorId */) {
 
 Return<void> BiometricsFingerprint::onFingerDown(uint32_t /* x */, uint32_t /* y */,
                                                 float /* minor */, float /* major */) {
-    int arg[2] = {TOUCH_FOD_ENABLE, FOD_STATUS_ON};
-    ioctl(touch_fd_.get(), TOUCH_IOC_SETMODE, &arg);
     touchFeatureService->setTouchMode(TOUCH_FOD_ENABLE, 1);
     mDevice->extCmd(mDevice, COMMAND_NIT, PARAM_NIT_FOD);
     return Void();
 }
 
 Return<void> BiometricsFingerprint::onFingerUp() {
-    int arg[2] = {TOUCH_FOD_ENABLE, FOD_STATUS_OFF};
-    ioctl(touch_fd_.get(), TOUCH_IOC_SETMODE, &arg);
     touchFeatureService->resetTouchMode(TOUCH_FOD_ENABLE);
     mDevice->extCmd(mDevice, COMMAND_NIT, PARAM_NIT_NONE);
     return Void();

@@ -20,7 +20,6 @@
 
 #include <android/hardware/biometrics/fingerprint/2.3/IBiometricsFingerprint.h>
 #include <android/log.h>
-#include <android-base/unique_fd.h>
 #include <hardware/hardware.h>
 #include <hidl/MQDescriptor.h>
 #include <hidl/Status.h>
@@ -93,8 +92,6 @@ public:
     Return<bool> isUdfps(uint32_t sensorId) override;
     Return<void> onFingerDown(uint32_t x, uint32_t y, float minor, float major) override;
     Return<void> onFingerUp() override;
-
-    android::base::unique_fd touch_fd_;
 
 private:
     sp<ITouchFeature> touchFeatureService;
