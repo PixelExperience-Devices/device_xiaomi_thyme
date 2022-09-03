@@ -276,10 +276,6 @@ PRODUCT_PACKAGES += \
     libhwbinder \
     libhwbinder.vendor
 
-# Kernel
-PRODUCT_COPY_FILES += \
-    $(THYME_PREBUILT)/kernel/dtb.img:dtb.img
-
 # Init scripts
 PRODUCT_PACKAGES += \
     fstab.qcom \
