@@ -1,11 +1,36 @@
+# Bluetooth
+persist.vendor.bt.a2dp_offload_cap          u:object_r:bluetooth_a2dp_offload_prop:s0
+
 # Camera
-camera.                     u:object_r:vendor_camera_prop:s0
-persist.camera.             u:object_r:vendor_camera_prop:s0
-vendor.camera.              u:object_r:vendor_camera_prop:s0
+persist.camera.                             u:object_r:vendor_camera_prop:s0
+ro.vendor.camera.                           u:object_r:vendor_camera_prop:s0
+vendor.camera.                              u:object_r:vendor_camera_prop:s0
+vendor.camera.sensor.                       u:object_r:vendor_camera_sensor_prop:s0
+vendor.camera.boot_complete                 u:object_r:vendor_camera_prop:s0
+vendor.camera.aux.                          u:object_r:vendor_camera_prop:s0
+ro.camera.req.fmq.size                      u:object_r:vendor_ro_camera_prop:s0
+ro.camera.res.fmq.size                      u:object_r:vendor_ro_camera_prop:s0
 
 # Fingerprint
-gf.debug.                   u:object_r:vendor_fp_prop:s0
-persist.vendor.sys.fp.      u:object_r:vendor_fp_prop:s0
+persist.vendor.sys.fp.                      u:object_r:vendor_fp_prop:s0
+ro.boot.fpsensor                            u:object_r:vendor_fp_prop:s0
+ro.hardware.fp.                             u:object_r:vendor_fp_prop:s0
+vendor.fps_hal.                             u:object_r:vendor_fp_prop:s0
 
 # Mlipay
-persist.vendor.sys.pay.     u:object_r:vendor_tee_listener_prop:s0
+persist.vendor.sys.pay.ifaa                 u:object_r:vendor_payment_security_prop:s0
+
+# Panel
+vendor.panel.color                          u:object_r:vendor_panel_prop:s0
+vendor.panel.display                        u:object_r:vendor_panel_prop:s0
+vendor.panel.touch_vendor                   u:object_r:vendor_panel_prop:s0
+vendor.panel.vendor                         u:object_r:vendor_panel_prop:s0
+
+# Sensors
+persist.sensor.sardisable                   u:object_r:vendor_sensors_prop:s0
+
+# Thermal
+vendor.sys.thermal.                         u:object_r:vendor_thermal_normal_prop:s0
+
+# Touchfeature
+ro.vendor.touchfeature.type                 u:object_r:vendor_touchfeature_prop:s0
