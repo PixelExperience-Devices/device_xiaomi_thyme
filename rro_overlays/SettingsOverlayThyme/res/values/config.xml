@@ -19,8 +19,9 @@
     <!-- Device specific doze package -->
     <string name="config_customDozePackage" translatable="false">org.lineageos.settings/org.lineageos.settings.doze.DozeSettingsActivity</string>
 
-    <!-- Whether to show Smooth Display feature in Settings Options -->
-    <bool name="config_show_smooth_display">true</bool>
+    <!-- Whether to show min/max refresh rate in display settings -->
+    <bool name="config_show_refresh_rate_controls">true</bool>
+    <bool name="config_supports_dynamic_refresh_rate_controls">false</bool>
 
     <!-- Defines the location of the fingerprint sensor on the device
          0 = back
