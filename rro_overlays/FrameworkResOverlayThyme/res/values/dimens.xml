@@ -23,12 +23,12 @@
         round. This value is used when retrieving the "radius" of the rounded corner in cases
         where the exact bezier curve cannot be retrieved.  This value will be subtracted from
         rounded_corner_radius to more accurately provide a "radius" for the rounded corner. -->
-    <dimen name="rounded_corner_radius_adjustment">0px</dimen>
+    <dimen name="rounded_corner_radius_adjustment">55px</dimen>
 
     <!-- Height of the status bar -->
     <dimen name="status_bar_height_portrait">92px</dimen>
     <dimen name="status_bar_height_landscape">24dp</dimen>
 
     <!-- for 18dp of padding at 2.75px/dp at default density -->
-    <dimen name="rounded_corner_content_padding">49.5px</dimen>
+    <dimen name="rounded_corner_content_padding">43.25px</dimen>
 </resources>
