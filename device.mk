@@ -24,7 +24,7 @@ PRODUCT_PACKAGES += \
     CarrierConfigOverlayThyme \
     FrameworkResOverlayThyme \
     SettingsOverlayThyme \
-    SystemUIOverlayKscope \
+    SystemUIOverlayLynnrin \
     SystemUIOverlayThyme \
     TelephonyOverlayThyme
 

@@ -1,6 +1,6 @@
 runtime_resource_overlay {
-    name: "SystemUIOverlayKscope",
-    theme: "SystemUIOverlayKscope",
+    name: "SystemUIOverlayLynnrin",
+    theme: "SystemUIOverlayLynnrin",
     certificate: "platform",
     sdk_version: "current",
     product_specific: true

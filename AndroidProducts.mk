@@ -5,8 +5,8 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/arrow_thyme.mk
+    $(LOCAL_DIR)/aosp_thyme.mk
 
 COMMON_LUNCH_CHOICES := \
-    arrow_thyme-userdebug \
-    arrow_thyme-eng
+    aosp_thyme-userdebug \
+    aosp_thyme-eng
