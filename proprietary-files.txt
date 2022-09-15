@@ -1,4 +1,4 @@
-# All unpinned blobs are extracted from V13.0.3.0.RJKCNXM.
+# All unpinned blobs are extracted from V13.0.8.0.RJKCNXM.
 
 # ACDB
 vendor/etc/acdbdata/Tutu/Tutu_Bluetooth_cal.acdb
@@ -143,6 +143,14 @@ vendor/firmware/cs35l41-dsp1-spk-prot-revb2.wmfw
 vendor/firmware/cs35l41-dsp1-spk-prot.bin
 vendor/firmware/cs35l41-dsp1-spk-prot.wmfw
 
+# ANT
+lib64/com.dsi.ant@1.0.so
+lib/com.dsi.ant@1.0.so
+vendor/lib64/hw/com.dsi.ant@1.0-impl.so
+vendor/lib64/com.dsi.ant@1.0.so
+vendor/lib/hw/com.dsi.ant@1.0-impl.so
+vendor/lib/com.dsi.ant@1.0.so
+
 # Bluetooth
 vendor/bin/hw/android.hardware.bluetooth@1.0-service-qti
 vendor/etc/init/android.hardware.bluetooth@1.0-service-qti.rc
@@ -160,6 +168,8 @@ vendor/lib64/libbt-hidlclient.so
 vendor/lib64/libbtnv.so
 vendor/lib64/vendor.qti.hardware.bluetooth_sar@1.0.so
 vendor/lib64/vendor.qti.hardware.bluetooth_sar@1.1.so
+vendor/lib64/libsoc_helper.so
+vendor/lib/libsoc_helper.so
 
 # Bluetooth (aptX) - from sunfish RQ1A.201205.008
 system_ext/lib64/libaptX_encoder.so|df1c89d7af1bb35808d5fe3496b04ba066c10cbc
@@ -520,8 +530,8 @@ vendor/etc/cne/wqeclient/VZW/VZW_profile3.xml
 vendor/etc/cne/wqeclient/VZW/VZW_profile4.xml
 vendor/etc/cne/wqeclient/VZW/VZW_profile5.xml
 vendor/etc/cne/wqeclient/VZW/VZW_profile6.xml
-vendor/etc/cne/profileSlm.xml
-vendor/etc/cne/slm.conf
+vendor/etc/cne/profileMwqem.xml
+vendor/etc/cne/mwqem.conf
 vendor/etc/default-permissions/com.qualcomm.qti.cne.xml
 vendor/etc/init/cnd.rc
 vendor/lib64/libcne.so
@@ -533,6 +543,8 @@ vendor/lib64/libwqe.so
 vendor/lib64/libxml.so
 vendor/lib64/vendor.qti.data.factory@2.0.so
 vendor/lib64/vendor.qti.data.factory@2.1.so
+vendor/lib64/vendor.qti.data.factory@2.2.so
+vendor/lib64/vendor.qti.data.factory@2.3.so
 vendor/lib64/vendor.qti.data.slm@1.0.so
 vendor/lib64/vendor.qti.hardware.data.cne.internal.api@1.0.so
 vendor/lib64/vendor.qti.hardware.data.cne.internal.constants@1.0.so
@@ -545,6 +557,9 @@ vendor/lib64/vendor.qti.hardware.data.latency@1.0.so
 vendor/lib64/vendor.qti.hardware.data.qmi@1.0.so
 vendor/lib64/vendor.qti.hardware.slmadapter@1.0.so
 vendor/lib64/vendor.qti.latency@2.0.so
+vendor/lib64/vendor.qti.latency@2.1.so
+vendor/lib64/vendor.qti.hardware.data.lce@1.0.so
+vendor/lib64/vendor.qti.hardware.mwqemadapter@1.0.so
 
 # Configstore
 vendor/bin/hw/vendor.qti.hardware.capabilityconfigstore@1.0-service
@@ -1108,13 +1123,13 @@ vendor/lib64/libGPQTEEC_vendor.so
 vendor/lib64/libGPTEE_vendor.so
 vendor/lib64/libQTEEConnector_vendor.so
 vendor/lib64/vendor.qti.hardware.qteeconnector@1.0.so
+vendor/lib64/libQTEEConnector_listener.so
 
 # RIL
 product/etc/permissions/telephony_product_privapp-permissions-qti.xml
 -system_ext/app/QtiTelephonyService/QtiTelephonyService.apk
 system_ext/etc/permissions/qcrilhook.xml
 system_ext/etc/permissions/telephony_system-ext_privapp-permissions-qti.xml
-system_ext/etc/permissions/telephonyservice.xml
 system_ext/framework/qcrilhook.jar
 system_ext/framework/qti-telephony-common.jar
 -system_ext/priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk
@@ -1180,6 +1195,7 @@ vendor/lib64/vendor.qti.hardware.radio.am@1.0.so
 vendor/lib64/vendor.qti.hardware.radio.atcmdfwd@1.0.so
 vendor/lib64/vendor.qti.hardware.radio.internal.deviceinfo@1.0.so
 vendor/lib64/vendor.qti.hardware.radio.lpa@1.0.so
+vendor/lib64/vendor.qti.hardware.radio.lpa@1.1.so
 vendor/lib64/vendor.qti.hardware.radio.qcrilhook@1.0.so
 vendor/lib64/vendor.qti.hardware.radio.qtiradio@1.0.so
 vendor/lib64/vendor.qti.hardware.radio.qtiradio@2.0.so
@@ -1203,6 +1219,7 @@ vendor/radio/qcril_database/upgrade/5_version_update_ecc_table.sql
 vendor/radio/qcril_database/upgrade/6_version_update_ecc_table.sql
 vendor/radio/qcril_database/upgrade/7_version_update_ecc_table.sql
 vendor/radio/qcril_database/qcril.db
+vendor/lib64/vendor.qti.data.mwqem@1.0.so
 
 # RIL (IMS)
 system_ext/lib64/lib-imsvideocodec.so
@@ -1251,6 +1268,7 @@ vendor/lib64/vendor.qti.hardware.radio.ims@1.3.so
 vendor/lib64/vendor.qti.hardware.radio.ims@1.4.so
 vendor/lib64/vendor.qti.hardware.radio.ims@1.5.so
 vendor/lib64/vendor.qti.hardware.radio.ims@1.6.so
+vendor/lib64/vendor.qti.hardware.radio.ims@1.7.so
 vendor/lib64/vendor.qti.ims.callcapability@1.0.so
 vendor/lib64/vendor.qti.ims.callinfo@1.0.so
 vendor/lib64/vendor.qti.ims.factory@1.0.so
@@ -1328,7 +1346,6 @@ vendor/etc/sensors/config/tsl2540.json
 vendor/etc/sensors/config/vl53l1_tof_0.json
 vendor/etc/sensors/proto/descriptor.proto
 vendor/etc/sensors/proto/nanopb.proto
-vendor/etc/sensors/proto/qti_gravity.proto
 vendor/etc/sensors/proto/sns_accel.proto
 vendor/etc/sensors/proto/sns_accel_cal.proto
 vendor/etc/sensors/proto/sns_activity_recognition.proto
@@ -1336,25 +1353,20 @@ vendor/etc/sensors/proto/sns_ambient_light.proto
 vendor/etc/sensors/proto/sns_ambient_temperature.proto
 vendor/etc/sensors/proto/sns_amd.proto
 vendor/etc/sensors/proto/sns_aont.proto
-vendor/etc/sensors/proto/sns_async_com_port.proto
 vendor/etc/sensors/proto/sns_basic_gestures.proto
 vendor/etc/sensors/proto/sns_bring_to_ear.proto
 vendor/etc/sensors/proto/sns_cal.proto
-vendor/etc/sensors/proto/sns_ccd_ttw.proto
-vendor/etc/sensors/proto/sns_ccd_walk.proto
 vendor/etc/sensors/proto/sns_cct.proto
 vendor/etc/sensors/proto/sns_client.proto
 vendor/etc/sensors/proto/sns_cmc.proto
-vendor/etc/sensors/proto/sns_cmd.proto
 vendor/etc/sensors/proto/sns_da_test.proto
-vendor/etc/sensors/proto/sns_dae.proto
-vendor/etc/sensors/proto/sns_data_acquisition_engine.proto
 vendor/etc/sensors/proto/sns_device_mode.proto
 vendor/etc/sensors/proto/sns_device_orient.proto
 vendor/etc/sensors/proto/sns_diag.proto
 vendor/etc/sensors/proto/sns_diag_sensor.proto
-vendor/etc/sensors/proto/sns_distance_bound.proto
+vendor/etc/sensors/proto/sns_direct_channel.proto
 vendor/etc/sensors/proto/sns_dpc.proto
+vendor/etc/sensors/proto/sns_eqm.proto
 vendor/etc/sensors/proto/sns_ext_svc.proto
 vendor/etc/sensors/proto/sns_facing.proto
 vendor/etc/sensors/proto/sns_flicker.proto
@@ -1374,16 +1386,14 @@ vendor/etc/sensors/proto/sns_heart_beat.proto
 vendor/etc/sensors/proto/sns_heart_rate.proto
 vendor/etc/sensors/proto/sns_hinge_angle.proto
 vendor/etc/sensors/proto/sns_humidity.proto
-vendor/etc/sensors/proto/sns_interrupt.proto
 vendor/etc/sensors/proto/sns_mag.proto
 vendor/etc/sensors/proto/sns_mag_cal.proto
-vendor/etc/sensors/proto/sns_mcmd.proto
-vendor/etc/sensors/proto/sns_motion_detect.proto
-vendor/etc/sensors/proto/sns_multishake.proto
 vendor/etc/sensors/proto/sns_oem1.proto
+vendor/etc/sensors/proto/sns_oem15.proto
 vendor/etc/sensors/proto/sns_oem2.proto
 vendor/etc/sensors/proto/sns_oem3.proto
 vendor/etc/sensors/proto/sns_offbody_detect.proto
+vendor/etc/sensors/proto/sns_ois_manager.proto
 vendor/etc/sensors/proto/sns_pedometer.proto
 vendor/etc/sensors/proto/sns_pedometer_wrist.proto
 vendor/etc/sensors/proto/sns_physical_sensor_oem_config.proto
@@ -1394,7 +1404,6 @@ vendor/etc/sensors/proto/sns_pressure.proto
 vendor/etc/sensors/proto/sns_proximity.proto
 vendor/etc/sensors/proto/sns_psmd.proto
 vendor/etc/sensors/proto/sns_registry.proto
-vendor/etc/sensors/proto/sns_remote_proc_state.proto
 vendor/etc/sensors/proto/sns_resampler.proto
 vendor/etc/sensors/proto/sns_rgb.proto
 vendor/etc/sensors/proto/sns_rmd.proto
@@ -1402,9 +1411,6 @@ vendor/etc/sensors/proto/sns_rotv.proto
 vendor/etc/sensors/proto/sns_sar.proto
 vendor/etc/sensors/proto/sns_sensor_temperature.proto
 vendor/etc/sensors/proto/sns_sig_motion.proto
-vendor/etc/sensors/proto/sns_signal_sensor.proto
-vendor/etc/sensors/proto/sns_sim.proto
-vendor/etc/sensors/proto/sns_sim_legacy.proto
 vendor/etc/sensors/proto/sns_std.proto
 vendor/etc/sensors/proto/sns_std_event_gated_sensor.proto
 vendor/etc/sensors/proto/sns_std_sensor.proto
@@ -1415,7 +1421,6 @@ vendor/etc/sensors/proto/sns_thermopile.proto
 vendor/etc/sensors/proto/sns_threshold.proto
 vendor/etc/sensors/proto/sns_tilt.proto
 vendor/etc/sensors/proto/sns_tilt_to_wake.proto
-vendor/etc/sensors/proto/sns_timer.proto
 vendor/etc/sensors/proto/sns_ultra_violet.proto
 vendor/etc/sensors/proto/sns_wrist_tilt_gesture.proto
 vendor/etc/sensors/hals.conf
