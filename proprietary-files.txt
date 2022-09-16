@@ -1475,8 +1475,14 @@ vendor/lib64/vendor.qti.hardware.soter@1.0.so
 vendor/bin/ssr_setup
 
 # Thermal
+vendor/bin/mi_thermald
 vendor/bin/thermal-engine
+vendor/etc/init/init.mi_thermald.rc
 vendor/etc/init/init_thermal-engine.rc
+-vendor/lib/libthermalclient.so
+-vendor/lib64/libthermalclient.so
+
+# Thermal configs
 vendor/etc/thermal-4k.conf
 vendor/etc/thermal-8k.conf
 vendor/etc/thermal-camera.conf
@@ -1494,8 +1500,6 @@ vendor/etc/thermal-normal.conf
 vendor/etc/thermal-phone.conf
 vendor/etc/thermal-region-map.conf
 vendor/etc/thermal-tgame.conf
--vendor/lib/libthermalclient.so
--vendor/lib64/libthermalclient.so
 
 # Time
 -vendor/app/TimeService/TimeService.apk
