@@ -460,11 +460,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.usb@1.3-service-qti
 
-# Vendor boot modules
-PRODUCT_COPY_FILES += \
-    $(call find-copy-subdir-files,*,$(THYME_PREBUILT)/modules/,$(TARGET_COPY_OUT_VENDOR_RAMDISK)/lib/modules) \
-    $(call find-copy-subdir-files,*,$(THYME_PREBUILT)/modules/,$(TARGET_COPY_OUT_VENDOR)/lib/modules)
-
 # Vendor service manager
 PRODUCT_PACKAGES += \
     vndservicemanager
