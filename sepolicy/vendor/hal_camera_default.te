@@ -1,3 +1,5 @@
+type hal_camerapostproc_xiaomi_hwservice, hwservice_manager_type;
+
 # Allow hal_camera_default to read and write to vendor_persist_camera_file
 allow hal_camera_default vendor_persist_camera_file:dir rw_dir_perms;
 allow hal_camera_default vendor_persist_camera_file:{
@@ -24,3 +26,11 @@ allow hal_camera_default system_data_file:dir search;
 
 get_prop(hal_camera_default, vendor_video_prop)
 set_prop(hal_camera_default, vendor_video_prop)
+
+get_prop(hal_camera_default, vendor_fp_prop)
+
+binder_call(hal_camera_default, platform_app)
+
+allow hal_camera_default mnt_vendor_file:dir { search };
+allow hal_camera_default proc_stat:file { open read };
+allow hal_camera_default vendor_xdsp_device:chr_file { read };
